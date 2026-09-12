@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>GalliMaps — Bangalore Inner-Road Navigator</title>
+  <meta name="description" content="Navigate Bangalore through inner roads and galis instead of traffic-choked main roads." />
+
+  <!-- Leaflet map library -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- ============ CONTROL PANEL ============ -->
+    <aside id="panel">
+      <header class="brand">
+        <div class="logo">🛺</div>
+        <div class="brand-text">
+          <h1>GalliMaps</h1>
+          <p>Skip the arterials. Take the inner roads.</p>
+        </div>
+      </header>
+
+      <div class="inputs">
+        <div class="field">
+          <span class="dot dot-start"></span>
+          <input id="from" type="text" placeholder="Start (e.g. Indiranagar)" autocomplete="off" />
+          <button class="mini" id="use-location" title="Use my location">📍</button>
+          <ul class="suggestions" id="from-suggest"></ul>
+        </div>
+
+        <div class="field">
+          <span class="dot dot-end"></span>
+          <input id="to" type="text" placeholder="Destination (e.g. Koramangala)" autocomplete="off" />
+          <button class="mini" id="swap" title="Swap start & destination">⇅</button>
+          <ul class="suggestions" id="to-suggest"></ul>
+        </div>
+
+        <button id="go" class="go-btn">Find quiet route</button>
+      </div>
+
+      <div class="tolerance">
+        <label for="budget">
+          Extra time I'll trade to dodge traffic
+          <strong id="budget-label">+50%</strong>
+        </label>
+        <input id="budget" type="range" min="0" max="120" step="10" value="50" />
+        <div class="tolerance-hint">
+          <span>Straightest</span>
+          <span>Quietest</span>
+        </div>
+      </div>
+
+      <!-- ============ ROUTE RESULTS ============ -->
+      <div id="results" class="results" hidden>
+        <div class="results-head">
+          <h2>Routes</h2>
+          <span class="results-sub">Ranked by how little you touch main roads</span>
+        </div>
+        <div id="route-cards"></div>
+      </div>
+
+      <div id="empty" class="empty">
+        <p>Enter a start and destination, then hit <em>Find quiet route</em>.</p>
+        <p class="micro">GalliMaps compares alternative paths and picks the one that stays off Bangalore's arterials — Outer Ring Road, Hosur Road, Old Airport Road and friends — as long as it isn't wildly slower.</p>
+      </div>
+
+      <div id="status" class="status" hidden></div>
+
+      <footer class="foot">
+        <button id="about-toggle" class="linkish">How does this work?</button>
+        <div id="about" class="about" hidden>
+          <p><strong>The idea:</strong> Google optimizes for ETA, which usually means the big, jammed roads. GalliMaps does the opposite — it scores each candidate route by how much of it runs on major arterials and highways, then prefers the one with the least "main-road exposure" within your time budget.</p>
+          <p><strong>How a road is judged "main":</strong> named Bangalore arterials & ring roads, highway references (NH/SH), and long fast-moving segments (a proxy for big roads).</p>
+          <p><strong>Honest limits:</strong> this rides on free public routing (OSRM) and its handful of alternative routes — it can't invent a gali the router never proposes. For "true" inner-road routing you'd run a custom Valhalla/GraphHopper profile; see the README for that upgrade path.</p>
+          <p class="micro">Map © OpenStreetMap contributors · Routing by OSRM · Search by Nominatim</p>
+        </div>
+      </footer>
+    </aside>
+
+    <!-- ============ MAP ============ -->
+    <main id="map"></main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
