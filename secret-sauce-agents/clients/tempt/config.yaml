@@ -15,11 +15,11 @@ outlets:
   - name: Anna Nagar East
     active_platforms: [zomato, swiggy]
     zomato_res_id: 21306274
-    swiggy_id: TODO  # 1062415 is "Anna Nagar" - confirm East or West
+    swiggy_id: 1062415  # POS-integrated
   - name: Anna Nagar West
     active_platforms: [zomato, swiggy]
     zomato_res_id: 21776569
-    swiggy_id: TODO  # 1062415 is "Anna Nagar" - confirm East or West
+    swiggy_id: TODO
   - name: Besant Nagar
     active_platforms: [zomato, swiggy]
     zomato_res_id: 21955745
@@ -41,15 +41,8 @@ outlets:
     zomato_res_id: null
     swiggy_id: TODO
 
-unassigned_ids:
-  swiggy:
-    - id: 1062415
-      label: Anna Nagar
-      pos_integrated: true
-      todo: Confirm whether this is Anna Nagar East or West, then move it onto that outlet.
-
 notes:
   - Zomato labels every Tempt outlet "Tempt." - always map by Res ID.
   - Zomato funds 50% of discounts. Context only; recon maps the discount line from the file, never computes it from this.
-  - Swiggy 1062415 (Anna Nagar) is POS-integrated.
+  - Swiggy 1062415 (Anna Nagar East) is POS-integrated.
   - Tempt Swiggy settlement files are still outstanding.
