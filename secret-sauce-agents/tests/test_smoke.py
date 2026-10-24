@@ -40,3 +40,18 @@ def test_excluded_ids_not_assigned(path):
         assigned = {o.get(field) for o in config["outlets"]}
         for entry in entries:
             assert entry["id"] not in assigned
+
+
+def test_inbox_path_override(monkeypatch, tmp_path):
+    import importlib
+    import sys
+
+    sys.path.insert(0, str(CLIENTS_DIR.parent / "scripts"))
+    import paths
+
+    monkeypatch.setenv("SECRET_SAUCE_INBOX", str(tmp_path))
+    paths = importlib.reload(paths)
+    assert paths.inbox("tempt", "zomato") == tmp_path / "tempt" / "zomato"
+    monkeypatch.delenv("SECRET_SAUCE_INBOX")
+    paths = importlib.reload(paths)
+    assert paths.INBOX_DIR == paths.REPO_ROOT / "inbox"

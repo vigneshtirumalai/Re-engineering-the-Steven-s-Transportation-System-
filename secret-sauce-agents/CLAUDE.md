@@ -17,6 +17,9 @@ Each has `clients/<client>/config.yaml` with outlets and platform IDs.
 
 Run Python through the venv: `.venv/bin/python`, `.venv/bin/pytest`.
 
+Raw data comes from Google Drive; see `DATA_SOURCES.md`. Scripts resolve the inbox and fixtures
+through `scripts/paths.py` (`SECRET_SAUCE_INBOX` / `SECRET_SAUCE_FIXTURES`), never hard-coded paths.
+
 ## Rules
 
 1. Numbers come from scripts in `scripts/`, never from you adding up values in your head. If a number is not produced by a script, do not state it.
