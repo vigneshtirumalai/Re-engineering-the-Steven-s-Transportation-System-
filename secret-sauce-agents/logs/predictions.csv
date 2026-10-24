@@ -1,0 +1,1 @@
+prediction_id,date,workflow,client,outlet,platform,metric,baseline_value,direction,magnitude,horizon_days,hit_rule,outcome_value,scored,scored_date

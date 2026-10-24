@@ -1,0 +1,55 @@
+client: tempt
+legal_entity: TEMPT FOODS LLP
+
+platforms:
+  zomato:
+    payout_cycle: weekly
+    payout_day: Wednesday
+  swiggy:
+    payout_cycle: TODO
+    payout_day: TODO
+
+# Outlets are identified by platform ID, never by display name.
+# null = outlet is not on that platform. TODO = on the platform, ID not yet known.
+outlets:
+  - name: Anna Nagar East
+    active_platforms: [zomato, swiggy]
+    zomato_res_id: 21306274
+    swiggy_id: TODO  # 1062415 is "Anna Nagar" - confirm East or West
+  - name: Anna Nagar West
+    active_platforms: [zomato, swiggy]
+    zomato_res_id: 21776569
+    swiggy_id: TODO  # 1062415 is "Anna Nagar" - confirm East or West
+  - name: Besant Nagar
+    active_platforms: [zomato, swiggy]
+    zomato_res_id: 21955745
+    swiggy_id: TODO
+  - name: Nandanam
+    active_platforms: [zomato, swiggy]
+    zomato_res_id: 22316386
+    swiggy_id: TODO
+  - name: Guindy
+    active_platforms: [zomato, swiggy]
+    zomato_res_id: 22614365
+    swiggy_id: TODO
+  - name: Alandur
+    active_platforms: [swiggy]
+    zomato_res_id: null
+    swiggy_id: TODO
+  - name: Nungambakkam
+    active_platforms: [swiggy]
+    zomato_res_id: null
+    swiggy_id: TODO
+
+unassigned_ids:
+  swiggy:
+    - id: 1062415
+      label: Anna Nagar
+      pos_integrated: true
+      todo: Confirm whether this is Anna Nagar East or West, then move it onto that outlet.
+
+notes:
+  - Zomato labels every Tempt outlet "Tempt." - always map by Res ID.
+  - Zomato funds 50% of discounts. Context only; recon maps the discount line from the file, never computes it from this.
+  - Swiggy 1062415 (Anna Nagar) is POS-integrated.
+  - Tempt Swiggy settlement files are still outstanding.
