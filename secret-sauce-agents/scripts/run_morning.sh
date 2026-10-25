@@ -41,6 +41,10 @@ if [ "$rc" -ne 0 ] || [ ! -s "$BRIEF" ]; then
     echo '```'
   } > "$BRIEF"
 fi
-# Refresh the dashboard last, so it shows this run's outcome (FAILED briefs included).
-python scripts/build_dashboard.py >> "$LOG" 2>&1 || echo "dashboard build failed" >> "$LOG"
+# Refresh the dashboard last, so it shows this run's outcome (FAILED briefs included),
+# then copy it (HTML + PDF) into the Drive-synced folder.
+if [ "${MORNING_SKIP_DASHBOARD:-0}" != "1" ]; then
+  python scripts/build_dashboard.py >> "$LOG" 2>&1 || echo "dashboard build failed" >> "$LOG"
+  python scripts/publish_dashboard.py >> "$LOG" 2>&1 || echo "dashboard publish failed" >> "$LOG"
+fi
 exit "$rc"

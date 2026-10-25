@@ -9,6 +9,7 @@ Raw files and human-maintained tables live in Google Drive, in the private folde
 | Hand-built golden recon outputs | `fixtures/` (name `tempt_golden_<period_start>.xlsx`) | Original .xlsx | `tests/test_recon.py` |
 | Outlet Registry | Google Sheet in the root folder | Sheet | Source for `clients/<client>/config.yaml` |
 | Predictions Log, Review Log | Google Sheets in the root folder | Sheet | Mirror of `logs/*.csv` |
+| Daily dashboard | `dashboard/control-room.pdf` (phone), `control-room.html` (laptop), `archive/` (90 days) | PDF + HTML | Written by `scripts/publish_dashboard.py` after each 06:00 run |
 
 ## Rules
 

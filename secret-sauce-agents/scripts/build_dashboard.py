@@ -551,6 +551,17 @@ a { color: var(--accent); }
 .dot.on { background: var(--good); border-color: var(--good); }
 .theme { font: inherit; font-size: 12px; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--line);
   background: var(--surface); color: var(--ink); cursor: pointer; }
+@media print {
+  :root, :root[data-theme="dark"] { --bg: #fff; --surface: #fff; --ink: #0b0b0b; --ink-2: #52514e;
+    --ink-3: #6b6a65; --line: #d6d5ce; --accent: #1f5fae; --good-text: #006300; --warn-bg: #f9eeda; }
+  @page { size: A4; margin: 12mm; }
+  body { font-size: 12px; }
+  button.copy, .theme { display: none; }
+  .card, .decide, .two > div, tr { break-inside: avoid; }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .two { grid-template-columns: 1fr; }
+  a { color: inherit; text-decoration: none; }
+}
 @media (max-width: 640px) {
   header.top, main { padding-left: 16px; padding-right: 16px; }
   .two { grid-template-columns: 1fr; }

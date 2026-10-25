@@ -25,4 +25,4 @@
 - [ ] Prompt 1: payout recon. Schema, workbook builder, tie-out tests, agents and /recon done; Zomato parser and golden test wait for settlement files
 - [ ] Prompt 2: client digest
 - [ ] Prompt 3: ad budget and funnel. Rules, funnel + day-of-week scaling, budget draft, agent and /adbudget done; export parser waits for TBS October exports
-- [ ] Prompt 4: orchestrator and schedule. /morning, plan + scoring + review scripts, headless runner, schedule files done; install the schedule on the 06:00 machine (SCHEDULE.md); sync logs to Sheets once the connector is on
+- [ ] Prompt 4: orchestrator and schedule. /morning, plan + scoring + review scripts, headless runner, schedule files done; install the schedule on the 06:00 machine (SCHEDULE.md); dashboard saved to Drive daily (HTML + PDF); sync logs to Sheets once the connector is on

@@ -129,7 +129,7 @@ def _run_morning(tmp_path, claude_script):
     fake.write_text("#!/usr/bin/env bash\n" + claude_script)
     fake.chmod(0o755)
     env = {**os.environ, "CLAUDE_BIN": str(fake), "BRIEF_DIR": str(tmp_path / "brief"),
-           "LOG_DIR": str(tmp_path / "runs")}
+           "LOG_DIR": str(tmp_path / "runs"), "MORNING_SKIP_DASHBOARD": "1"}
     result = subprocess.run(["bash", str(ROOT / "scripts" / "run_morning.sh")], env=env,
                             capture_output=True, text=True)
     briefs = list((tmp_path / "brief").glob("*.md"))
