@@ -119,7 +119,7 @@ def add_mom(current, previous):
 
 def write_csv(records, path):
     with open(path, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(records[0]))
+        writer = csv.DictWriter(f, fieldnames=list(records[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(records)
 

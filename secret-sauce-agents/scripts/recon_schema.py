@@ -62,7 +62,7 @@ def read_tidy(path):
 
 def write_tidy(rows, path):
     with open(path, "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=TIDY_COLUMNS)
+        writer = csv.DictWriter(f, fieldnames=TIDY_COLUMNS, lineterminator="\n")
         writer.writeheader()
         for row in rows:
             writer.writerow({**row, "amount": str(row["amount"])})

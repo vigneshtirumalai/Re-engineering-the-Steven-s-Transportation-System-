@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/bin/python scripts/morning_plan.py:*)",
+      "Bash(.venv/bin/python scripts/score_predictions.py:*)",
+      "Bash(.venv/bin/python scripts/parse_zomato_settlement.py:*)",
+      "Bash(.venv/bin/python scripts/parse_swiggy_settlement.py:*)",
+      "Bash(.venv/bin/python scripts/build_recon_workbook.py:*)",
+      "Bash(.venv/bin/python scripts/parse_ads_exports.py:*)",
+      "Bash(.venv/bin/python scripts/funnel.py:*)",
+      "Bash(.venv/bin/python scripts/budget_draft.py:*)",
+      "Bash(.venv/bin/python scripts/digest/extract_metrics.py:*)",
+      "Bash(.venv/bin/python scripts/digest/compare.py:*)",
+      "Bash(.venv/bin/python scripts/digest/email_client.py:*)",
+      "Bash(.venv/bin/python -c:*)",
+      "Bash(.venv/bin/pytest:*)"
+    ],
+    "deny": [
+      "Bash(.venv/bin/python scripts/digest/send_via_browser.py:*)",
+      "Bash(.venv/bin/python scripts/digest/preview.py:*)",
+      "Read(./.env)"
+    ]
+  }
+}

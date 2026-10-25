@@ -13,6 +13,8 @@ Each has `clients/<client>/config.yaml` with outlets and platform IDs.
 - `scripts/`: deterministic Python (pandas, openpyxl). Tests in `tests/` (pytest).
 - `tests/fixtures/`: hand-built golden outputs. Gitignored (real client data).
 - `logs/predictions.csv`, `logs/review_log.csv`: prediction and review tracking.
+- `logs/metrics.csv`: computed metrics (date, client, outlet, platform, metric, value) that
+  workflows append after each run; `scripts/score_predictions.py` scores predictions from it.
 - `.claude/agents/`, `.claude/commands/`, `.claude/skills/`: subagents, slash commands, skills.
 
 Run Python through the venv: `.venv/bin/python`, `.venv/bin/pytest`.
