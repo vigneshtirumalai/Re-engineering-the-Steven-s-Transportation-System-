@@ -3,6 +3,7 @@
     "allow": [
       "Bash(.venv/bin/python scripts/morning_plan.py:*)",
       "Bash(.venv/bin/python scripts/score_predictions.py:*)",
+      "Bash(.venv/bin/python scripts/build_dashboard.py:*)",
       "Bash(.venv/bin/python scripts/parse_zomato_settlement.py:*)",
       "Bash(.venv/bin/python scripts/parse_swiggy_settlement.py:*)",
       "Bash(.venv/bin/python scripts/build_recon_workbook.py:*)",

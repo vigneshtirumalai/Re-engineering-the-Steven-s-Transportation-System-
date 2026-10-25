@@ -41,4 +41,6 @@ if [ "$rc" -ne 0 ] || [ ! -s "$BRIEF" ]; then
     echo '```'
   } > "$BRIEF"
 fi
+# Refresh the dashboard last, so it shows this run's outcome (FAILED briefs included).
+python scripts/build_dashboard.py >> "$LOG" 2>&1 || echo "dashboard build failed" >> "$LOG"
 exit "$rc"

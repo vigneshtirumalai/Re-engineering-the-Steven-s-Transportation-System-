@@ -27,3 +27,4 @@ every step's status. Never send anything and never open a browser.
    6. **Missing or failed**: every MISSING.md item and the plan's `missing` lists, with
       the exact file needed and where it goes.
    Numbers in the brief are quoted from outputs, never computed by you.
+4. Run `.venv/bin/python scripts/build_dashboard.py` to refresh `outputs/dashboard/index.html`.
