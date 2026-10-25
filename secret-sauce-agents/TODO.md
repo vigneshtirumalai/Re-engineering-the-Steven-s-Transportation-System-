@@ -24,5 +24,5 @@
 - [x] Prompt 0: scaffold
 - [ ] Prompt 1: payout recon. Schema, workbook builder, tie-out tests, agents and /recon done; Zomato parser and golden test wait for settlement files
 - [ ] Prompt 2: client digest
-- [ ] Prompt 3: ad budget and funnel
+- [ ] Prompt 3: ad budget and funnel. Rules, funnel + day-of-week scaling, budget draft, agent and /adbudget done; export parser waits for TBS October exports
 - [ ] Prompt 4: orchestrator and schedule
