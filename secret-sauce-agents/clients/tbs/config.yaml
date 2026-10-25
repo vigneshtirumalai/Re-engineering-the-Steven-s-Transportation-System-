@@ -1,0 +1,36 @@
+client: tbs
+legal_entity: TODO  # The Brownie Studio - legal entity name
+
+platforms:
+  zomato: {}
+  swiggy: {}
+
+excluded_ids:
+  zomato:
+    - id: 19356224
+      reason: Maduravoyal - not a TBS store
+
+# Outlets are identified by platform ID, never by display name.
+outlets:
+  - name: Potheri
+    active_platforms: [zomato, swiggy]
+    zomato_res_id: 22734640
+    swiggy_id: 1379344  # Swiggy reports call this outlet Urapakkam
+  - name: Purasavakkam
+    active_platforms: [zomato]  # TODO: confirm Swiggy presence
+    zomato_res_id: 22566498
+    swiggy_id: TODO
+  - name: Selaiyur
+    active_platforms: [zomato]  # TODO: confirm Swiggy presence
+    zomato_res_id: 22645595
+    swiggy_id: TODO
+  - name: Adyar
+    active_platforms: [zomato]  # TODO: confirm Swiggy presence
+    zomato_res_id: 20032394
+    swiggy_id: TODO
+  # TODO: remaining TBS outlets
+
+notes:
+  - Exclude Zomato 19356224 (Maduravoyal) from every report.
+  - Swiggy 1379344 appears as "Urapakkam" in Swiggy reports; it is the Potheri outlet.
+  - Zomato display names are wrong for 22566498 (Purasavakkam), 22645595 (Selaiyur), 20032394 (Adyar); use the names in this config.

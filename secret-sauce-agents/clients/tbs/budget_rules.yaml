@@ -1,0 +1,39 @@
+# Vicky's monthly ad budget method for TBS. scripts/budget_draft.py applies this exactly.
+
+products:
+  zomato: [cpc]          # Zomato is CPC only
+  swiggy: [cpc, cba]     # Swiggy carries CPC and CBA
+
+split:
+  # Carry forward last month's outlet ratios and CPC/CBA product ratios.
+  method: carry_forward
+
+scaling:
+  # Swiggy MTD exports stop around the 26th. Scale MTD to the full month: each weekday's
+  # average over the MTD days, times how many of that weekday the month has.
+  method: day_of_week
+  draft_on_day: 27
+
+spend_cap:
+  max_share_of_gmv: 0.085
+  # Projected next-month GMV = this month's scaled GMV, unless overridden here.
+  projected_gmv_override: null
+
+margin:
+  contribution_margin: 0.40   # of GMV, per order
+  # Break-even ROAS = 1 / contribution_margin = 2.5x, ROAS = attributed GMV / ad spend.
+
+cpc_rule:
+  # CPC is the visibility engine. Never cut CPC on an outlet to fund CBA, even where CBA
+  # ROAS is higher; flag the trade-off instead.
+  never_cut_cpc_to_fund_cba: true
+
+new_outlets:
+  # Outlets with traction that had no budget last month get a separate line on top of
+  # the carried-forward split. Vicky sets their amount.
+  min_orders_per_day: 30
+  lookback_days: 14
+
+data_notes:
+  - Exclude Zomato 19356224 (Maduravoyal, not a TBS store).
+  - Swiggy CPC exports have no impressions or clicks; CPC menu visits are the click proxy.

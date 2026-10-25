@@ -1,0 +1,11 @@
+client: ck
+legal_entity: TODO  # Chorum Kootanum - legal entity name
+
+platforms:
+  zomato: {}
+  swiggy: {}
+
+# Outlets are identified by platform ID, never by display name.
+outlets: []  # TODO: outlet names, zomato_res_id, swiggy_id, active_platforms
+
+notes: []

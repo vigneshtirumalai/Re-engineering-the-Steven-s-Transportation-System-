@@ -1,0 +1,18 @@
+# Client financial data: never commit (folders are kept via .gitkeep)
+inbox/**
+!inbox/**/
+!inbox/**/.gitkeep
+outputs/**
+!outputs/**/
+!outputs/**/.gitkeep
+tests/fixtures/**
+!tests/fixtures/.gitkeep
+logs/runs/**
+!logs/runs/.gitkeep
+
+# Secrets and environment
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc

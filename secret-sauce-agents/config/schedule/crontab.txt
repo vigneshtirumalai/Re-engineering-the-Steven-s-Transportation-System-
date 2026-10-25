@@ -1,0 +1,3 @@
+# Linux cron: daily 06:00 Asia/Kolkata. Replace REPO_PATH. Requires a cron that honours CRON_TZ (cronie does).
+CRON_TZ=Asia/Kolkata
+0 6 * * * /bin/bash REPO_PATH/scripts/run_morning.sh
